@@ -4,7 +4,7 @@
 
 * Rails version -> 4.1.4
 
-* System dependencies -> Rspec, Factory Girl, Capyabara
+* System dependencies -> Rspec, Factory Girl, Capyabara, pry, Hirb
 
 * Configuration - see the Gemfile, be sure to bundle
 
