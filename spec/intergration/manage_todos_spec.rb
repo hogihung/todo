@@ -10,4 +10,16 @@ feature 'Manage todo' do
     expect(page).to have_css 'li.todo', text: 'Buy some milk.'
   end
 
+  scenario 'view only my todos' do
+    Todo.create(description: 'Buy some eggs', owner_email: 'bobo@nobots.com')
+    sign_in_as('me@nobots.com')
+
+    click_link 'Add a new todo'
+    fill_in 'Description', with: 'Buy some milk'
+    click_button 'Create todo'
+
+    expect(page).to have_css 'li.todo', text: 'Buy some milk'
+    expect(page).to_not have_css 'li.todo', text: 'Buy some eggs'
+  end
+
 end
